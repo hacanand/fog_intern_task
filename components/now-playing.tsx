@@ -1,36 +1,127 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Play, Pause, SkipBack, SkipForward, Repeat, Shuffle } from 'lucide-react'
-import { Slider } from "@/components/ui/slider"
+import { useState, useEffect } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Slider } from "@/components/ui/slider";
+import {
+  Repeat,
+  SkipBack,
+  Play,
+  SkipForward,
+  Shuffle,
+  Pause,
+} from "lucide-react";
+import { cn } from "@/lib/utils";
+import { Song } from "./popular-songs";
+import { useAtom } from "jotai";
+import { PlayingAtom } from "@/lib/atom";
 
-export function NowPlaying() {
-  const [isPlaying, setIsPlaying] = useState(false)
+// interface Song {
+//   id: any;
+//   title: string;
+//   artist?: string;
+//   duration: number; // in seconds
+//   coverUrl?: string;
+//   plays?: string;
+//   album?: string;
+//   artists?: string;
+// }
+
+interface NowPlayingCardProps {
+  song: Song;
+  isPlaying?: boolean;
+  onPlayPause?: () => void;
+  onNext?: () => void;
+  onPrevious?: () => void;
+  onShuffle?: () => void;
+  onRepeat?: () => void;
+  className?: string;
+}
+
+export function NowPlaying({
+  song,
+ 
+  onPlayPause,
+  onNext,
+  onPrevious,
+  onShuffle,
+  onRepeat,
+  className,
+}: NowPlayingCardProps) {
+  const [currentTime, setCurrentTime] = useState(0);
+const [isPlaying, setIsPlaying] = useAtom(PlayingAtom);
+  // Reset progress when song changes
+  useEffect(() => {
+    setCurrentTime(0);
+  }, [song.id]);
+
+  // Simulate time progress when playing
+  useEffect(() => {
+    let interval: NodeJS.Timeout;
+    if (isPlaying && currentTime < song.duration) {
+      interval = setInterval(() => {
+        setCurrentTime((prev) => Math.min(prev + 1, song.duration));
+      }, 1000);
+    }
+    return () => clearInterval(interval);
+  }, [isPlaying, currentTime, song.duration]);
+
+  const formatTime = (seconds: number) => {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = Math.floor(seconds % 60);
+    return `${minutes}:${remainingSeconds.toString().padStart(2, "0")}`;
+  };
 
   return (
-    <div className="flex items-center justify-between border-t bg-card p-4">
-      <div className="flex items-center space-x-4">
-        <img
-          src="/placeholder.svg"
-          alt="Album cover"
-          className="h-12 w-12 rounded-md"
-        />
-        <div>
-          <h3 className="font-medium">Beat It</h3>
-          <p className="text-sm text-muted-foreground">Michael Jackson</p>
+    <Card className={cn("w-full bg-[#4A0404] text-white rounded-b-none", className)}>
+      <CardContent className="p-6 space-y-4 w-full">
+        <div className="text-center">
+          <h2 className="text-lg font-semibold mb-4">Now Playing</h2>
         </div>
-      </div>
-      <div className="flex flex-col items-center space-y-2">
-        <div className="flex items-center space-x-4">
-          <button className="text-muted-foreground hover:text-foreground">
+
+        <div className="relative aspect-video w-full overflow-hidden rounded-lg">
+          <img
+            src={song.coverUrl}
+            alt={`${song.title} by ${song.artist}`}
+            className="object-cover w-full"
+          />
+        </div>
+
+        <div className="space-y-1 text-center">
+          <h3 className="font-semibold text-lg">{song.title}</h3>
+          <p className="text-sm text-gray-300">{song.artist}</p>
+        </div>
+
+        <div className="space-y-2">
+          <Slider
+            value={[currentTime]}
+            max={song?.duration}
+            step={1}
+            className="cursor-pointer"
+            onValueChange={([value]) => setCurrentTime(value)}
+          />
+          <div className="flex justify-between text-sm text-gray-300">
+            <span>{ formatTime(currentTime)}</span>
+            <span>{formatTime (song?.duration)}</span>
+          </div>
+        </div>
+
+        <div className="flex justify-between items-center px-4">
+          <button
+            onClick={onShuffle}
+            className="hover:text-white text-gray-300 transition"
+          >
             <Shuffle className="h-5 w-5" />
           </button>
-          <button className="text-muted-foreground hover:text-foreground">
+          <button
+            onClick={onPrevious}
+            className="hover:text-white text-gray-300 transition"
+          >
             <SkipBack className="h-5 w-5" />
           </button>
           <button
             onClick={() => setIsPlaying(!isPlaying)}
-            className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground"
+            className="bg-white text-black rounded-full p-3 hover:scale-105 transition"
           >
             {isPlaying ? (
               <Pause className="h-5 w-5" />
@@ -38,25 +129,20 @@ export function NowPlaying() {
               <Play className="h-5 w-5" />
             )}
           </button>
-          <button className="text-muted-foreground hover:text-foreground">
+          <button
+            onClick={onNext}
+            className="hover:text-white text-gray-300 transition"
+          >
             <SkipForward className="h-5 w-5" />
           </button>
-          <button className="text-muted-foreground hover:text-foreground">
+          <button
+            onClick={onRepeat}
+            className="hover:text-white text-gray-300 transition"
+          >
             <Repeat className="h-5 w-5" />
           </button>
         </div>
-        <div className="flex w-full max-w-md items-center space-x-2">
-          <span className="text-xs text-muted-foreground">2:15</span>
-          <Slider
-            defaultValue={[33]}
-            max={100}
-            step={1}
-          />
-          <span className="text-xs text-muted-foreground">4:18</span>
-        </div>
-      </div>
-      <div className="w-48"></div>
-    </div>
-  )
+      </CardContent>
+    </Card>
+  );
 }
-

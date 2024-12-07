@@ -1,9 +1,10 @@
-import { Home, TrendingUp, Library, Compass, Settings, LogOutIcon,Music } from 'lucide-react'
+"use client"
+import { Home, TrendingUp, Library, Compass, Settings, LogOutIcon, Music } from 'lucide-react'
 import Link from "next/link"
 
 export function Sidebar() {
   return (
-    <div className="flex h-full flex-col bg-card text-card-foreground">
+    <div className="flex h-full flex-col bg-card text-card-foreground pl-6">
       <div className="p-4">
         <h1 className="text-2xl font-extrabold text-primary flex">
           <span>
@@ -13,7 +14,10 @@ export function Sidebar() {
         </h1>
       </div>
       <nav className="flex-1">
-        <ul className="space-y-2 p-4">
+        <div className="text-small capitalize mt-8 pl-6 text-muted-foreground">
+          Menu
+        </div>
+        <ul className="space-y-2 p-4 pt-2 font-bold">
           <li>
             <Link
               href="/"
@@ -53,6 +57,9 @@ export function Sidebar() {
         </ul>
       </nav>
       <div className="p-4">
+        <div className="text-small mt-8 pl-2 capitalize text-muted-foreground">
+          general
+        </div>
         <ul className="space-y-2">
           <li>
             <Link

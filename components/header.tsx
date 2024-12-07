@@ -25,7 +25,7 @@ export function Header() {
         <Input
           type="search"
           placeholder="Search..."
-          className="w-64 pl-8"
+          className="w-72 pl-8 opacity-70 rounded-full "
         />
       </div>
     </header>

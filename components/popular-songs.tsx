@@ -1,5 +1,4 @@
 "use client";
-
 import { useState } from "react";
 import { Play, Pause } from "lucide-react";
 import {
@@ -133,7 +132,7 @@ function SortableRow({
                 onClick={(e) => {
                   // e.stopPropagation();
                   // console.log("clicked");
-                  setPlayingAtom(isPlayingAtom);
+                  isPlayingAtom===false?setPlayingAtom(!isPlayingAtom):setPlayingAtom(isPlayingAtom);
                   togglePlay(song.id);
                 }}
                 className=" absolute  flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground opacity-0 transition-opacity group-hover:opacity-100"

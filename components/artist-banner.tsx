@@ -1,3 +1,4 @@
+"use client"
 import { BadgeCheck } from 'lucide-react'
 
 export function ArtistBanner() {

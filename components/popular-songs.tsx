@@ -46,6 +46,7 @@ const initialSongs: Song[] = [
     plays: "1,040,811,084",
     duration: 293,
     album: "Thriller 25 Super Deluxe Edition",
+    coverUrl: "https://picsum.photos/1080/720?random=2",
   },
   {
     id: 2,
@@ -53,6 +54,7 @@ const initialSongs: Song[] = [
     plays: "643,786,045",
     duration: 258,
     album: "Thriller 25 Super Deluxe Edition",
+    coverUrl: "https://picsum.photos/1080/720?random=2",
   },
   {
     id: 3,
@@ -60,6 +62,7 @@ const initialSongs: Song[] = [
     plays: "407,234,004",
     duration: 257,
     album: "Thriller 25 Super Deluxe Edition",
+    coverUrl: "https://picsum.photos/1080/720?random=2",
   },
   {
     id: 4,
@@ -67,6 +70,7 @@ const initialSongs: Song[] = [
     plays: "316,391,952",
     duration: 365,
     album: "Bad 25th Anniversary",
+    coverUrl: "https://picsum.photos/1080/720?random=2",
   },
   {
     id: 5,
@@ -74,6 +78,7 @@ const initialSongs: Song[] = [
     plays: "268,187,218",
     duration: 220,
     album: "Off The Wall",
+    coverUrl: "https://picsum.photos/1080/720?random=2",
   },
 ];
 

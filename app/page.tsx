@@ -36,7 +36,7 @@ export default function Home() {
           <>
             <ResizablePanel defaultSize={20} minSize={20} maxSize={20}>
               <div className="w-full h-full bg-gradient-to-b from-[#270101] to-[#240101]">
-                <div className=" absolute    bottom-0 w-full max-w-[20%]">
+                <div className=" absolute bottom-0 w-[20%]">
                   <NowPlaying song={currentSong} />
                 </div>
               </div>

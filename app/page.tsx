@@ -34,10 +34,18 @@ export default function Home() {
         <ResizableHandle />
         {currentSong && (
           <>
-            <ResizablePanel defaultSize={20} minSize={20} maxSize={20}>
+            <ResizablePanel defaultSize={20} minSize={20} maxSize={20} className="max-md:hidden">
               <div className="w-full h-full bg-gradient-to-b from-[#270101] to-[#240101]">
                 <div className=" absolute bottom-0 w-[20%]">
-                  <NowPlaying song={currentSong} />
+                  <NowPlaying
+                    song={currentSong}
+                    isPlaying={true}
+                    onPlayPause={() => { }}
+                    onNext={() => { }}
+                    onPrevious={() => { }}
+                    onShuffle={() => { }}
+                    onRepeat={() => { }}
+                  />
                 </div>
               </div>
             </ResizablePanel>

@@ -8,16 +8,16 @@ export function Header() {
       <nav>
         <ul className="flex space-x-4">
           <li>
-            <a href="#" className="text-sm font-medium hover:text-primary">Music</a>
+            <a href="#" className="text-base font-medium hover:text-primary">Music</a>
           </li>
           <li>
-            <a href="#" className="text-sm font-medium hover:text-primary">Podcast</a>
+            <a href="#" className="text-base font-medium hover:text-primary">Podcast</a>
           </li>
           <li>
-            <a href="#" className="text-sm font-medium hover:text-primary">Live</a>
+            <a href="#" className="text-base font-medium hover:text-primary">Live</a>
           </li>
           <li>
-            <a href="#" className="text-sm font-medium hover:text-primary">Radio</a>
+            <a href="#" className="text-base font-medium hover:text-primary">Radio</a>
           </li>
         </ul>
       </nav>

@@ -76,11 +76,11 @@ const [isPlaying, setIsPlaying] = useAtom(PlayingAtom);
     <div className="w-full h-full relative  self-center items-center justify-center">
       <Card 
         className={cn(
-          "w-[90%]   bg-[#4A0404] text-white rounded-b-none shadow-md",
+          "w-full  bg-[#4A0404] text-white rounded-b-none shadow-md",
           className
         )}
       >
-        <CardContent className="p-6 space-y-4 w-full">
+        <CardContent className="lg:p-6 md:space-y-4 w-full">
           <div className="text-center">
             <h2 className="text-lg font-semibold mb-4">Now Playing</h2>
           </div>
@@ -112,7 +112,7 @@ const [isPlaying, setIsPlaying] = useAtom(PlayingAtom);
             </div>
           </div>
 
-          <div className="flex justify-between items-center px-4">
+          <div className="flex justify-between items-center lg:px-4 ">
             <button
               onClick={onShuffle}
               className="hover:text-white text-gray-300 transition"

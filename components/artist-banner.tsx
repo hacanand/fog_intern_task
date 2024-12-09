@@ -3,11 +3,13 @@ import { BadgeCheck } from 'lucide-react'
 
 export function ArtistBanner() {
   return (
-    <div className="relative mb-6 overflow-hidden rounded-lg">
+    <div className="relative mb-6 overflow-hidden rounded-lg h-[50%]">
       <img
-        src="https://picsum.photos/1080/720?random=2"
+        src="https://picsum.photos/1080/1080?random=2"
         alt="Michael Jackson performing"
-        className="h-64 w-full object-cover"
+        className=" w-full object-cover"
+        // height={720}
+        // width={1080}
       />
       <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent" />
       <div className="absolute bottom-4 left-4">

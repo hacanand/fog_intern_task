@@ -76,7 +76,7 @@ const [isPlaying, setIsPlaying] = useAtom(PlayingAtom);
     <div className="w-full h-full relative  self-center items-center justify-center">
       <Card 
         className={cn(
-          "w-full  bg-[#4A0404] text-white rounded-b-none shadow-md",
+          "w-full  sticky bottom-0 bg-[#4A0404] text-white rounded-b-none shadow-md",
           className
         )}
       >

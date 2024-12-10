@@ -4,9 +4,9 @@ import { Input } from "@/components/ui/input"
 
 export function Header() {
   return (
-    <header className="flex items-center justify-between border-b p-4">
+    <header className="flex max-md:flex-col items-center justify-between border-b p-4">
       <nav>
-        <ul className="flex space-x-4">
+        <ul className="flex space-x-4 ">
           <li>
             <a href="#" className="text-base font-medium hover:text-primary">Music</a>
           </li>

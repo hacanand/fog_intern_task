@@ -28,6 +28,18 @@ export default function Home() {
             <main className="flex-1 overflow-auto p-6">
               <ArtistBanner />
               <PopularSongs onPlay={setCurrentSong} />
+              <div className="max-md:block md:hidden">
+                {currentSong && <NowPlaying
+                  song={currentSong}
+                  isPlaying={true}
+                  onPlayPause={() => { }}
+                  onNext={() => { }}
+                  onPrevious={() => { }}
+                  onShuffle={() => { }}
+                  onRepeat={() => { }}
+                />
+                }
+              </div>
             </main>
           </div>
         </ResizablePanel>

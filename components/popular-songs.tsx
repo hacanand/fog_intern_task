@@ -153,10 +153,10 @@ function SortableRow({
           {song.title}
         </span>
       </TableCell>
-      <TableCell className="text-right">{song.plays}</TableCell>
+      <TableCell className="text-right max-md:hidden">{song.plays}</TableCell>
       <TableCell className="text-right">{song.duration}</TableCell>
       <TableCell>
-        <span className="cursor-pointer hover:decoration-neutral-50 hover:underline">
+        <span className="cursor-pointer hover:decoration-neutral-50 hover:underline max-md:hidden">
           {song.album}
         </span>
       </TableCell>
@@ -228,9 +228,9 @@ export function PopularSongs({ onPlay }: PopularSongsProps) {
             <TableRow>
               <TableHead className="w-12 text-center">#</TableHead>
               <TableHead>Title</TableHead>
-              <TableHead className="text-right">Plays</TableHead>
+              <TableHead className="text-right max-md:hidden">Plays</TableHead>
               <TableHead className="text-right">Duration</TableHead>
-              <TableHead>Album</TableHead>
+              <TableHead className="max-md:hidden">Album</TableHead>
             </TableRow>
           </TableHeader>
           <SortableContext items={songs} strategy={verticalListSortingStrategy}>

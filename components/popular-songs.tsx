@@ -109,10 +109,7 @@ function SortableRow({
       ref={setNodeRef}
       style={style}
       className="group hover:bg-muted/50 cursor-grab  "
-      //   onClick={(e) => {
-      // //  e.stopPropagation()
-      //     console.log("event clicked")
-      //   }}
+     
       {...attributes}
       {...listeners}
     >
@@ -122,7 +119,7 @@ function SortableRow({
             <button
               onClick={(e) => {
                 e.stopPropagation();
-                // console.log("clicked")
+               
                 setPlayingAtom(!isPlayingAtom);
                 togglePlay(song.id);
               }}
@@ -134,9 +131,7 @@ function SortableRow({
             <>
               <div className=" h-8 w-8  text-center  ">{songNo + 1}</div>
               <button
-                onClick={(e) => {
-                  // e.stopPropagation();
-                  // console.log("clicked");
+                onClick={() => {
                   isPlayingAtom===false?setPlayingAtom(!isPlayingAtom):setPlayingAtom(isPlayingAtom);
                   togglePlay(song.id);
                 }}

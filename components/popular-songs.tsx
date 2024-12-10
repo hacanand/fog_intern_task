@@ -16,6 +16,7 @@ import {
   PointerSensor,
   useSensor,
   useSensors,
+  DragEndEvent,
 } from "@dnd-kit/core";
 import {
   sortableKeyboardCoordinates,
@@ -192,13 +193,12 @@ export function PopularSongs({ onPlay }: PopularSongsProps) {
     }
   };
 
-  const handleDragEnd = (event: any) => {
+  const handleDragEnd = (event: DragEndEvent) => {
     const { active, over } = event;
-
-    if (active.id !== over.id) {
+    if (active.id !== over?.id) {
       setSongs((items) => {
         const oldIndex = items.findIndex((item) => item.id === active.id);
-        const newIndex = items.findIndex((item) => item.id === over.id);
+        const newIndex = items.findIndex((item) => item.id === over?.id);
 
         return arrayMove(items, oldIndex, newIndex);
       });

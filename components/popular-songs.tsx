@@ -29,11 +29,11 @@ import { useAtom } from "jotai";
 import { PlayingAtom } from "@/lib/atom";
 
 export interface Song {
-  id: any;
+  id: number;
   title: string;
   artist?: string;
   duration: number ; // in seconds
-  coverUrl?: string;
+  coverUrl: string;
   plays?: string;
   album?: string;
   artists?: string;

@@ -16,6 +16,7 @@ import { Song } from "./popular-songs";
 import { useAtom } from "jotai";
 import { PlayingAtom } from "@/lib/atom";
 import Image from "next/image";
+// import Image from "next/image";
 
 // interface Song {
 //   id: any;
@@ -85,10 +86,12 @@ const [isPlaying, setIsPlaying] = useAtom(PlayingAtom);
           </div>
 
           <div className="relative aspect-video w-full overflow-hidden rounded-lg">
-            <img
+            <Image
               src={song?.coverUrl}
               alt={`${song.title} by ${song.artist}`}
               className="object-cover w-full"
+              width={1080}
+              height={720}
             />
           </div>
 

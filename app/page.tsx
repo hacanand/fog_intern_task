@@ -32,7 +32,7 @@ export default function Home() {
                 {currentSong && <NowPlaying
                   song={currentSong}
                   isPlaying={true}
-                  onPlayPause={() => { }}
+                  // onPlayPause={() => { }}
                   onNext={() => { }}
                   onPrevious={() => { }}
                   onShuffle={() => { }}
@@ -52,7 +52,7 @@ export default function Home() {
                   <NowPlaying
                     song={currentSong}
                     isPlaying={true}
-                    onPlayPause={() => { }}
+                    // onPlayPause={() => { }}
                     onNext={() => { }}
                     onPrevious={() => { }}
                     onShuffle={() => { }}

@@ -133,7 +133,11 @@ function SortableRow({
               <div className=" h-8 w-8  text-center  ">{songNo + 1}</div>
               <button
                 onClick={() => {
-                  isPlayingAtom===false?setPlayingAtom(!isPlayingAtom):setPlayingAtom(isPlayingAtom);
+                  if (isPlayingAtom === false) {
+                    setPlayingAtom(!isPlayingAtom);
+                  } else {
+                    setPlayingAtom(isPlayingAtom);
+                  }
                   togglePlay(song.id);
                 }}
                 className=" absolute  flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground opacity-0 transition-opacity group-hover:opacity-100"

@@ -1,10 +1,11 @@
 "use client"
 import { BadgeCheck } from 'lucide-react'
+import Image from 'next/image'
 
 export function ArtistBanner() {
   return (
     <div className="relative mb-6 overflow-hidden rounded-lg h-[50%]">
-      <img
+      <Image
         src="https://picsum.photos/1080/1080?random=2"
         alt="Michael Jackson performing"
         className=" w-full object-cover"

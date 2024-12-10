@@ -15,6 +15,7 @@ import { cn } from "@/lib/utils";
 import { Song } from "./popular-songs";
 import { useAtom } from "jotai";
 import { PlayingAtom } from "@/lib/atom";
+import Image from "next/image";
 
 // interface Song {
 //   id: any;
@@ -40,8 +41,6 @@ interface NowPlayingCardProps {
 
 export function NowPlaying({
   song,
- 
-  onPlayPause,
   onNext,
   onPrevious,
   onShuffle,
